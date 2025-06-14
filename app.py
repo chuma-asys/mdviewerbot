@@ -1,9 +1,3 @@
-
----
-
-## ✅ 5. `app.py` の最小構成
-
-```python
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 import os
