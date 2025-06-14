@@ -91,11 +91,16 @@ def handle_file_shared(event, say, client):
     commit_msg = f"Add Markdown view: {output_name}"
     os.system("git add docs")
     os.system(f'git commit -m "{commit_msg}"')
-    os.system("git push origin main")
+    os.system("git push origin develop")
+
+    # # Gitへ自動commit & push
+    # os.system(f"git add {output_path}")
+    # os.system(f'git commit -m "Add {output_name}"')
+    # os.system("git push origin develop")  # ブランチは必要に応じて変更
 
     # 公開URLを生成してSlackに返信
     view_url = f"https://{GITHUB_USERNAME}.github.io/{REPO_NAME}/{output_name}"
-    say(f"✅ Markdownファイルを整形・保存しました！こちらでご覧いただけます：\n{view_url}")
+    say(f"✅ Markdownファイルを整形・保存しました！こちらでご覧いただけます\n（表示できるまで数分かかることがあります。）\n{view_url}")
 
 # Flaskサーバー起動
 if __name__ == "__main__":
